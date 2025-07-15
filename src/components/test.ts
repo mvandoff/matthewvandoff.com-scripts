@@ -1,29 +1,20 @@
-
 /*
- * Component | Test 
+ * Component | Test
  */
 
-import { IModule } from "@sygnal/sse";
-
+import { IModule } from '@sygnal/sse';
 
 export class TestComponent implements IModule {
+	elem: HTMLElement;
 
-  elem: HTMLElement;
+	constructor(elem: HTMLElement) {
+		this.elem = elem;
+	}
 
-  constructor(elem: HTMLElement) {
-    this.elem = elem; 
+	setup() {}
 
-  }
-
-  setup() {
-        
-  }
-
-  exec() {
-
-    // Initialize sa5 window var
-    const sa5: any = window['sa5' as any];
-
-  }
-
+	exec() {
+		// Initialize sa5 window var
+		const sa5: any = window['sa5' as any];
+	}
 }

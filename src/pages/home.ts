@@ -1,22 +1,13 @@
-
 /*
  * Page | Home
  */
 
-import { IModule } from "@sygnal/sse";
- 
+import { IModule } from '@sygnal/sse';
 
 export class HomePage implements IModule {
+	constructor() {}
 
-  constructor() {
-  }
+	setup() {}
 
-  setup() {
-        
-  }
-
-  exec() {
-
-  }
-
+	exec() {}
 }
