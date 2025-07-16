@@ -1,10 +1,9 @@
-/*
- * Site
- */
-
+/* Site */
 import { IModule, Page } from '@sygnal/sse';
-
-// import gsap from 'gsap';
+import { initMainNav } from './head-scripts/initMainNav';
+import { initMobileNav } from './head-scripts/initMobileNav';
+import gsap from 'gsap';
+import ScrambleTextPlugin from 'gsap/ScrambleTextPlugin';
 
 export class Site implements IModule {
 	constructor() {}
@@ -16,13 +15,16 @@ export class Site implements IModule {
 	 */
 	setup() {
 		Page.loadEngineCSS('site.css');
+		gsap.registerPlugin(ScrambleTextPlugin);
 	}
 
-	/**
-	 * Exec code runs after the DOM has processed.
-	 */
+	/** Exec code runs after the DOM has processed. */
 	exec() {
 		// Put your site-level custom code here
 		// it will have full access to the DOM
+		console.log('init');
+
+		initMainNav();
+		initMobileNav();
 	}
 }
