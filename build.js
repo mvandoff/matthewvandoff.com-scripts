@@ -7,7 +7,8 @@ esbuild
 	.build({
 		entryPoints,
 		bundle: true,
-		sourcemap: true,
+		sourcemap: false,
+		minify: true,
 		outdir: 'dist',
 		watch: process.argv.includes('--watch'),
 	})

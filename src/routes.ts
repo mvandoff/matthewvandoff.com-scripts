@@ -10,7 +10,7 @@
  *
  */
 
-import { HomePage } from './pages/home';
+import { HomePage } from './pages/home/home';
 import { RouteDispatcher } from '@sygnal/sse';
 import { Site } from './site';
 
