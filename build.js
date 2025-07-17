@@ -24,4 +24,7 @@ build({
 			},
 		}),
 	],
+	banner: {
+		js: 'window.IS_DEV = false;',
+	},
 }).catch(() => process.exit(1));
