@@ -22,6 +22,9 @@ const ctx = await esbuild.context({
 			},
 		}),
 	],
+	banner: {
+		js: 'window.IS_DEV = true;',
+	},
 });
 
 await ctx.watch();
@@ -30,6 +33,9 @@ const res = await ctx.serve({
 	servedir: 'dist',
 	keyfile: `./${process.env.SSL_KEY_FILE_NAME}`,
 	certfile: `./${process.env.SSL_CERT_FILE_NAME}`,
+	cors: {
+		origin: '*',
+	},
 });
 
 console.log(`Running on https://${res.hosts[1]}:${res.port}`);

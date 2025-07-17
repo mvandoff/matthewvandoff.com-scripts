@@ -17,6 +17,9 @@ export class Site implements IModule {
 	 * the DOM to be loaded.
 	 */
 	setup() {
+		if (window.IS_DEV)
+			new EventSource('https://192.168.1.113:8000/esbuild').addEventListener('change', () => location.reload());
+
 		document.head.insertAdjacentHTML('beforeend', `<style>${siteCss}</style>`);
 
 		gsap.registerPlugin(ScrambleTextPlugin);

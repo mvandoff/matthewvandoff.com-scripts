@@ -1,5 +1,6 @@
 body {
-	border: 2px solid blue !important;
+	border-left: 15px solid blue;
+	border-right: 15px solid blue;
 }
 #main-nav {
 	a {
