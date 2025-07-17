@@ -1,0 +1,20 @@
+body {
+	border: 2px solid red !important;
+}
+#main-nav {
+	a {
+		transition: all 0.25s ease;
+		&.inactive {
+			color: var(--slate-500) !important;
+		}
+		&.active {
+			color: white;
+		}
+		&:hover {
+			color: white;
+		}
+		&.selected {
+			color: white;
+		}
+	}
+}

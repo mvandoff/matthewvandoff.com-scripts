@@ -8,8 +8,7 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true
-		//      "types": ["jest"]
 	},
-	"include": ["src"],
+	"include": ["src", "declarations.d.ts"],
 	"exclude": ["node_modules", "dist"]
 }
