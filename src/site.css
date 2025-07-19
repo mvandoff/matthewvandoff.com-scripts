@@ -1,7 +1,17 @@
-body {
-	border-left: 15px solid blue;
-	border-right: 15px solid blue;
+:root {
+	--main-50: #e1f3fe;
+	--main-100: #95d7ff;
+	--main-200: #63c4fe;
+	--main-300: #30b1fe;
+	--main-400: #17a7ff;
+	--main-500: #009dfd;
+	--main-600: #008ee3;
+	--main-700: #006eb1;
+	--main-800: #004e7e;
+	--main-900: #002f4b;
+	--main-950: #001623;
 }
+
 #main-nav {
 	a {
 		transition: all 0.25s ease;

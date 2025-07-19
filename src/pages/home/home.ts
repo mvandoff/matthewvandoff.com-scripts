@@ -1,7 +1,7 @@
 /* Page | Home */
 
 import { IModule } from '@sygnal/sse';
-import { initDotsGrid } from './scripts/initDotsGrid';
+import { initGrids } from './scripts/grid';
 
 export class HomePage implements IModule {
 	constructor() {}
@@ -9,6 +9,6 @@ export class HomePage implements IModule {
 	setup() {}
 
 	exec() {
-		// initDotsGrid();
+		initGrids();
 	}
 }

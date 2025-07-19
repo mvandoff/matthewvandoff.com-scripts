@@ -2,7 +2,6 @@ import 'dotenv/config';
 import { glob } from 'glob';
 import esbuild from 'esbuild';
 import esbuildPluginInlineImport from 'esbuild-plugin-inline-import';
-import { transform } from 'lightningcss';
 
 const entryPoints = glob.sync('./src/**/*.ts');
 
@@ -12,22 +11,14 @@ const ctx = await esbuild.context({
 	bundle: true,
 	plugins: [
 		// Always include this plugin before others
-		esbuildPluginInlineImport({
-			transform: async (contents) => {
-				let { code } = transform({
-					code: Buffer.from(contents),
-					minify: true,
-				});
-				return code;
-			},
-		}),
+		esbuildPluginInlineImport(),
 	],
 	banner: {
 		js: 'window.IS_DEV = true;',
 	},
 });
 
-await ctx.watch();
+ctx.watch();
 
 const res = await ctx.serve({
 	servedir: 'dist',
@@ -39,3 +30,10 @@ const res = await ctx.serve({
 });
 
 console.log(`Running on https://${res.hosts[1]}:${res.port}`);
+
+for (const sig of ['SIGINT', 'SIGTERM']) {
+	process.once(sig, async () => {
+		await ctx.dispose(); // stops watch + serve and kills esbuild’s child
+		process.exit(0);
+	});
+}
